@@ -9,6 +9,13 @@ Run this command in the root directory:
 docker run -it --rm --volume="$PWD:/srv/jekyll" --publish [::1]:4000:4000 jekyll/jekyll jekyll serve
 ```
 
+If you need to have multiple config files, then you can use this docker command:
+```sh
+docker run -it --rm --volume="$PWD:/srv/jekyll" --publish [::1]:4000:4000 jekyll/jekyll jekyll serve --config another-config.yml
+```
+
+Where `another-config.yml` is the file to use instead of the default `_config.yaml`.
+
 ## Sync content to the server
 rsync -aP _site/* root@185.170.114.81:/root/html/
 
