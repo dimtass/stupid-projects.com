@@ -1,0 +1,20 @@
+# /etc/systemd/system/web-server.service
+# systemctl enable web-server
+# systemctl start web-server
+
+[Unit]
+Description=Docker Compose Service for www.stupid-projects.com
+Requires=docker.service
+After=docker.service
+
+[Service]
+WorkingDirectory=/root/stupid-projects.com
+ExecStart=/usr/local/bin/docker-compose up
+ExecStop=/usr/local/bin/docker-compose down
+TimeoutStartSec=0
+Restart=on-failure
+StartLimitIntervalSec=60
+StartLimitBurst=3
+
+[Install]
+WantedBy=multi-user.target
