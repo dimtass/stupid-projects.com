@@ -97,7 +97,8 @@ The above command will start a webserver at [http://localhost:4000](http://local
 your site content. When you do a change and save the file, then the server detects the change and reloads the
 web browser.
 
-> Note: the above command will start the server for debugging only!
+> The above command will start the server for debugging only!
+{: .prompt-info }
 
 After you finish with all the changes you want then you can just build the site using this command:
 ```sh

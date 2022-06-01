@@ -123,10 +123,10 @@ From the above output you can see that IRQ number 27 is mapped on the `eth0` int
 
 In this case, I'll assign IRQ 27 to CPU4 (eth0) and IRQ 234 to CPU5 (eth1). Both CPU4 and CPU5 are the Cortex-A72 cores, the fast ones (1.8GHz). The same we need to do for the RPS for both interfaces. Gladly, the bit masks are the same for both cases (ethX and RPS), therefore the bit mask for eth0 is 0x10 and for eth1 is 0x20. This is because the following table.
 
-|	| CPU5 | CPU4 |	CPU3 | CPU2 |	CPU1 | CPU0 |
--|-|-|-|-|-|-
-eth0 |	0	| 1 |	0 |	0 |	0 |	0
-eth1 |  1	| 0 |	0 |	0 |	0 |	0
+|      | CPU5 | CPU4 | CPU3 | CPU2 | CPU1 | CPU0 |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| eth0 | 0    | 1    | 0    | 0    | 0    | 0    |
+| eth1 | 1    | 0    | 0    | 0    | 0    | 0    |
 
 As you can see on the above table every cell is a bit, so we have 6 bits for 6 cores and therefore 01 0000 (=0x10 HEX) is the bit mask for eth0 and 10 0000 (=0x20) is the bit mask for eth1.
 
@@ -152,7 +152,7 @@ In FriendlyWRT you can add a service in `/etc/init.d/` that calls this script if
 
 ## Nanopi-R4S benchmarks
 
-In the previous post [here](https://www.stupid-projects.com/benchmarking-the-nanopi-r4s/), I've ran several benchmarks using iperf, but I found that the two benchmarks that are more demanding for the device is using two parallel threads for TCP and the UDP test, when both are done in both directions. This time I will also do this test using the default MTU which is 1500 and also test with 512 bytes, as this seems to be the size that various protocols prefer. The MTU size defines the largest packet size that will be transmitted over the network.
+In the previous post [here]({% post_url 2020-12-09-benchmarking-the-nanopi-r4s %}), I've ran several benchmarks using iperf, but I found that the two benchmarks that are more demanding for the device is using two parallel threads for TCP and the UDP test, when both are done in both directions. This time I will also do this test using the default MTU which is 1500 and also test with 512 bytes, as this seems to be the size that various protocols prefer. The MTU size defines the largest packet size that will be transmitted over the network.
 
 This change in MTU needs to be done on the iperf server and client, therefore in my case I had to use this command on my workstation and laptop.
 
@@ -170,17 +170,17 @@ The iperf server IP in these examples is `192.168.0.2` and the server is connect
 
 For the TCP test the commands I've used for the server and client are:
 
-Host | Command
--|-
-Server (WAN)	| iperf -s
-Client (LAN)	| iperf -c 192.168.0.2 -t 120 -d -P 2
+| Host         | Command                             |
+| ------------ | ----------------------------------- |
+| Server (WAN) | iperf -s                            |
+| Client (LAN) | iperf -c 192.168.0.2 -t 120 -d -P 2 |
 
 For the UDP test the commands I've used for the server and client are:
 
-Host | Command
--|-
-Server (WAN)	iperf -s -u
-Client (LAN)	iperf -c 192.168.0.2 -u -t 120 -b 1000M -d
+| Host         | Command                                    |
+| ------------ | ------------------------------------------ |
+| Server (WAN) | iperf -s -u                                |
+| Client (LAN) | iperf -c 192.168.0.2 -u -t 120 -b 1000M -d |
 
 ## Nanopi-R4S benchmarks
 
@@ -188,12 +188,12 @@ These are the results for the Nanopi-R4S with and without using the network opti
 
 
 | MTU	| TCP/UDP |	Results Mbits/sec | Results Mbits/sec  |
-|     |         |     (default)	    | (optimized)        |
-|-----|---------|-------------------|--------------------|
-| 1500|    TCP	|       941	        |     941            |
-| 1500|    UDP	|       808	        |     742            |
-| 512	|    TCP	|       575	        |     588            |
-| 512	|    UDP	|       556	        |     (854)          |
+|      |     | (default) | (optimized) |
+| ---- | --- | --------- | ----------- |
+| 1500 | TCP | 941       | 941         |
+| 1500 | UDP | 808       | 742         |
+| 512  | TCP | 575       | 588         |
+| 512  | UDP | 556       | (854)       |
 
 This is the `/proc/interrupts` after the benchmark, to verify the core assignment to the IRQs.
 

@@ -87,7 +87,7 @@ newgrp docker
 sudo apt install apparmor
 ```
 
-> Note: The apparmor is needed from docker and it's not installed by default.
+> The apparmor is needed from docker and it's not installed by default.
 {: .prompt-info }
 
 Then install/get `docker-compose`:
@@ -97,7 +97,7 @@ mv docker-compose-linux-aarch64 /usr/bin/docker-compose
 sudo chmod +x /usr/bin/docker-compose
 ```
 
-> Tip: You may need to update the version. Currently, the last version is `v2.5.1`
+> You may need to update the version. Currently, the last version is `v2.5.1`
 {: .prompt-tip }
 
 Get [this](https://github.com/dimtass/docker-registry-sbc) repo
@@ -128,7 +128,8 @@ docker run --rm -ti xmartlabs/htpasswd <username> <password> htpasswd
 scp htpasswd <sbc-user>@<sbc-ip>:~/docker-registry-sbc/registry-config
 ```
 
-> Note: you need to replace the `<username>` and `<password>` with the credentials you want.
+> you need to replace the `<username>` and `<password>` with the credentials you want.
+{: .prompt-info }
 
 ## Change your registry IP
 You now need to change your registry IP address in the yaml files in the SBC.
@@ -162,7 +163,8 @@ Then add this:
 { "insecure-registries":["192.168.0.79:5000"] } 
 ```
 
-> Note: you need to replace the IP with your SBC's IP.
+> You need to replace the IP with your SBC's IP.
+{: .prompt-info }
 
 Then restart the `docker` service:
 ```sh
@@ -189,6 +191,8 @@ sudo docker-compose -f credentials.yml up
 ```
 
 If everything is fine you should see something like this:
+
+{% details Click to expand... %}
 ```
 [+] Running 3/3
  ⠿ Container ui-as-standalone-ui-1        Removed                                                                    0.1s
@@ -230,11 +234,13 @@ ui-as-standalone-ui-1        | 2022/05/29 11:26:06 [notice] 1#1: start worker pr
 ui-as-standalone-ui-1        | 2022/05/29 11:26:06 [notice] 1#1: start worker process 47
 ui-as-standalone-ui-1        | 2022/05/29 11:26:06 [notice] 1#1: start worker process 48
 ```
+{% enddetails %}
 
 Now the service is running.
 
-> Note: Currently the service is not running as a daemon. You need to create your own service unit to run
-this service as a daemon on reboot, which is not covered here.
+> Currently the service is not running as a daemon. You need to create your own service unit to run
+> this service as a daemon on reboot, which is not covered here.
+{: .prompt-info }
 
 ## Use the registry
 Now on your `host` run this command:
