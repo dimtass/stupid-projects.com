@@ -47,7 +47,7 @@ On this post I'll focus on running the inference on the cloud and use an MCU as 
 
 All the project file are in this repo:
 
-[https://bitbucket.org/dimtass/jetson-nano-tflite-mnist](https://bitbucket.org/dimtass/jetson-nano-tflite-mnist)
+[https://github.com/dimtass/jetson-nano-tflite-mnist](https://github.com/dimtass/jetson-nano-tflite-mnist)
 
 Now let's dive into it.
 
@@ -153,7 +153,7 @@ To build and upload the firmware to the esp8266 read the README.md of the repo.
 
 ## Using the Jupyter notebook
 
-I've used the exact same tflite model that I've used in [part 3]({% post_url 2019-06-27-machine-learning-on-embedded-part-3 %}) and [part 4]({% post_url 2019-07-26-machine-learning-on-embedded-part-4 %}). The model is located in `./jupyter_notebook/mnist.tflite`. You need to clone the repo on the Jetson nano (or your workstation is you prefer). From now on instead of making a distinction between the Jetson nano and the workstation I'll just refer to them as the cloud as it doesn't really make any difference. Therefore, just clone the repo to your cloud server. This [here](https://bitbucket.org/dimtass/jetson-nano-tflite-mnist/src/master/jupyter_notebook/MNIST-TensorFlow.ipynb?viewer=nbviewer) is the jupyter notepad on bitbucket.
+I've used the exact same tflite model that I've used in [part 3]({% post_url 2019-06-27-machine-learning-on-embedded-part-3 %}) and [part 4]({% post_url 2019-07-26-machine-learning-on-embedded-part-4 %}). The model is located in `./jupyter_notebook/mnist.tflite`. You need to clone the repo on the Jetson nano (or your workstation is you prefer). From now on instead of making a distinction between the Jetson nano and the workstation I'll just refer to them as the cloud as it doesn't really make any difference. Therefore, just clone the repo to your cloud server. This [here](https://github.com/dimtass/jetson-nano-tflite-mnist/blob/master/jupyter_notebook/MNIST-TensorFlow.ipynb) is the jupyter notepad on github.
 
 
 ## Benchmarking the inference on the cloud

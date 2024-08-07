@@ -87,7 +87,7 @@ cat ~/.aws/{config,credentials}
 The config file contains information about the region andthe `credentials` file contains your AWS Access Key ID and the AWS Secret Access Key. Normally, you don't want those keys flapping around in text mode and you should use some kind of vault service, but let's skip this step for now.
 
 If you haven't cloned the repo I've used in the previous post already, then this is the repo you need to clone:  
-[https://bitbucket.org/dimtass/stm32f103-cmake-template/src/master/](https://bitbucket.org/dimtass/stm32f103-cmake-template/src/master/)
+[https://github.com/dimtass/stm32f103-cmake-template](https://github.com/dimtass/stm32f103-cmake-template)
 
 Have a look in the `stm32-cde-aws.json` file. I'll also paste it here:
 
@@ -328,7 +328,7 @@ This will automatically connect you to the instance, so you don't need to find t
 Now that you're inside your instance's terminal, after running `vagrant ssh` you can build the STM32 template code like this:
 
 ```sh
-git clone --depth 1 --recursive https://dimtass@bitbucket.org/dimtass/stm32f103-cmake-template.git
+git clone --depth 1 --recursive https://github.com/dimtass/stm32f103-cmake-template.git
 cd stm32f103-cmake-template
 time TOOLCHAIN_DIR=/opt/toolchains/gcc-arm-none-eabi-9-2019-q4-major CLEANBUILD=true USE_STDPERIPH_DRIVER=ON SRC=src_stdperiph ./build.sh
 ```

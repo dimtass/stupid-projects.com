@@ -35,7 +35,7 @@ It is a great time to be an engineer or a hobbyist and having all those tools an
 
 All the source code and files for this project are available here:
 
-[https://bitbucket.org/dimtass/teensy-hid-with-unity3d](https://bitbucket.org/dimtass/teensy-hid-with-unity3d)
+[https://github.com/dimtass/teensy-hid-with-unity3d](https://github.com/dimtass/teensy-hid-with-unity3d)
 
 **Note:** _This post is not targeting 3D graphics developers in no way. It's meant mostly for embedded engineers or hobbyists._
 
@@ -165,11 +165,11 @@ And this goes on forever. Each line is a comma separated list of values and the 
   * Average Gyro Z value
   * Average Gyro Z offset
 
-Now, all you need to do is to let this running for a couple of seconds (30-60) and then copy all the output from the serial monitor to a file named `calibration_data.txt`. The file actually already exists in the `/rnd/bitbucket/teensy-hid-with-unity3d/mpu6050-calibration` folder and it contains the values from my sensor, so you can use those to experiment or erase the file and put yours in its place. Also, be aware that when you copy the output from the serial monitor to the txt file, you need to delete any empty line in the end for the notebook scripts to work, otherwise, you'll get an error in the jupyter notepad.
+Now, all you need to do is to let this running for a couple of seconds (30-60) and then copy all the output from the serial monitor to a file named `calibration_data.txt`. The file actually already exists in the `/rnd/github/teensy-hid-with-unity3d/mpu6050-calibration` folder and it contains the values from my sensor, so you can use those to experiment or erase the file and put yours in its place. Also, be aware that when you copy the output from the serial monitor to the txt file, you need to delete any empty line in the end for the notebook scripts to work, otherwise, you'll get an error in the jupyter notepad.
 
 **Note:** _while you running the calibration firmware you need to be sure that the there are no any vibrations on the surface. For example, if you put this on your desk then be sure that there's no vibrations from you or any other equipment you may have running on the desk._
 
-As I'm explaining quite thorough in the notebook how to use it, I'll keep it simple here. Also, from this point I assume that you've read the jupyter notepad in the repo [here](https://bitbucket.org/dimtass/teensy-hid-with-unity3d/src/master/mpu6050-calibration/mpu6050-calibration.ipynb?viewer=nbviewer).
+As I'm explaining quite thorough in the notebook how to use it, I'll keep it simple here. Also, from this point I assume that you've read the jupyter notepad in the repo [here](https://github.com/dimtass/teensy-hid-with-unity3d/blob/master/mpu6050-calibration/mpu6050-calibration.ipynb).
 
 You can use the notebook to visualize the PID controller output and also calculate the values to use for your sensor's offsets. It's interesting to see some plots here. As I mention in the notebook, you can use the data_start_offset and data_end_offset, to plot different subsets of data for each axis.
 
@@ -186,7 +186,7 @@ So, as you can see in the first 20 samples, the PID controller kicks in and trie
 ![]({{page.img_src}}/mpu6050-accel-calibration-20_120.png){: width="{{page.img_width}}" {{page.img_extras}}}
 ![]({{page.img_src}}/mpu6050-gyro-calibration-20_120.png){: width="{{page.img_width}}" {{page.img_extras}}}
 
-On the above images, I've started from sample 20, in order to remove the steep slope during the first PID controller input/output correction. Now you can see that the data that are coming from the accel. and gyro axes are fluctuating quite much and the PID tries on every iteration to correct this error. Of course, you'll never get a zero error as the sensor is quite sensitive and there's also thermal and electronic noise and also vibrations that you can't sense but the sensor does. So, what you do in such cases is that you use the average value for each axis. Be careful, though. You don't want to include the first samples in the average value calculations for each axis, because that would give you values that are way off. As you can see in the notepad [here](https://bbnbviewer.us-west-1.prod.public.atl-paas.net/notebook?repo=dimtass%2Fteensy-hid-with-unity3d&cset=6216d19c60a900d4ae2e38cc6b3435914eac8b16&name=mpu6050-calibration.ipynb&path=mpu6050-calibration%2Fmpu6050-calibration.ipynb&xdm_c=channel-0162fc94-95d8-42e1-834a-1984f3cc2a37&xdm_e=https%3A%2F%2Fbitbucket.org&crev=92c315220219%2Fdist%2Fconnect%2Fv5&jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb25uZWN0aW9uOjM1OTMxNTIiLCJpYXQiOjE1NjQ3NDg3NDMsInFzaCI6IjAzNWM3Yzg4YTMxOGY4ZDQ2YjFiYTY0ZjMwNjM0MTYwNDZhOTA3Nzk5NDA3YzE4NmRlNjhmZDc3YzUyMDVmYWUiLCJhdWQiOiJjb25uZWN0aW9uOjM1OTMxNTIiLCJleHAiOjE1NjQ3NDkwNDN9.9etH4W9ejf3rflhyzmWVu8BjxjnSppe2vC_I3UCHYEY#Accelerator-calibration), I'm using the `skip_first_n_data` to skip the first 100 samples and then calculate the average from the rest values.
+On the above images, I've started from sample 20, in order to remove the steep slope during the first PID controller input/output correction. Now you can see that the data that are coming from the accel. and gyro axes are fluctuating quite much and the PID tries on every iteration to correct this error. Of course, you'll never get a zero error as the sensor is quite sensitive and there's also thermal and electronic noise and also vibrations that you can't sense but the sensor does. So, what you do in such cases is that you use the average value for each axis. Be careful, though. You don't want to include the first samples in the average value calculations for each axis, because that would give you values that are way off. As you can see in the notepad [here](https://github.com/dimtass/teensy-hid-with-unity3d/blob/master/mpu6050-calibration/mpu6050-calibration.ipynb), I'm using the `skip_first_n_data` to skip the first 100 samples and then calculate the average from the rest values.
 
 Finally, you can use the calculated values from the `Source code values` section and copy those in the firmware. You can use whatever method you like to calibrate the sensor, just be aware that if you try both methods you won't get the same values! Even if you run the same test twice you won't the exact same values, but they should be similar.
 

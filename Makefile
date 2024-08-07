@@ -1,10 +1,26 @@
-CURDIR := $(notdir $(patsubst %/,%,$(dir $(mkfile_path))))
+install:
+	docker run --rm -it \
+		--platform linux/amd64 \
+		--volume="$(PWD):/srv/jekyll:Z" \
+		jvconseil/jekyll-docker \
+		bundle install
 
-server:
-	docker run -it --rm --volume="$(PWD):/srv/jekyll" -p 8080:4000 jekyll/jekyll jekyll serve
+serve:
+	docker run --rm -it \
+		--platform linux/amd64 \
+		--volume="$(PWD):/srv/jekyll:Z" \
+		-p 4000:4000 \
+		jvconseil/jekyll-docker \
+		jekyll serve
 
 build:
-	docker run -it --rm -e  JEKYLL_ENV=production --volume="$(PWD):/srv/jekyll" --publish [::1]:4000:4000 jekyll/jekyll jekyll build
+	docker run -it --rm \
+		--platform linux/amd64 \
+		-e JEKYLL_ENV=production \
+		--volume="$(PWD):/srv/jekyll:Z" \
+		--publish [::1]:4000:4000 \
+		jvconseil/jekyll-docker \
+		jekyll build
 
-publish:
-	rsync -aP _site/* root@185.170.114.81:/root/html/
+upload:
+	./update-site.sh

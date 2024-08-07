@@ -69,7 +69,6 @@ For this project I'm running Elasticsearch and Kibana on a docker container on a
 
 So let's see how to setup a very basic Elasticsearch and Kibana container using docker. First head to this repo here:
 
-  - [https://bitbucket.org/dimtass/elastic-stack-on-embedded/src/master/](https://bitbucket.org/dimtass/elastic-stack-on-embedded/src/master/  )
   - [https://github.com/dimtass/elastic-stack-on-embedded.git](https://github.com/dimtass/elastic-stack-on-embedded.git)
   - [https://gitlab.com/dimtass/elastic-stack-on-embedded.git](https://gitlab.com/dimtass/elastic-stack-on-embedded.git)
 
@@ -174,7 +173,6 @@ I've written a software meta layer for Yocto that you can use to add the officia
 
 [https://gitlab.com/dimtass/meta-elastic-beats](https://gitlab.com/dimtass/meta-elastic-beats)
 [https://github.com/dimtass/meta-elastic-beats](https://github.com/dimtass/meta-elastic-beats)
-[https://bitbucket.org/dimtass/meta-elastic-beats](https://bitbucket.org/dimtass/meta-elastic-beats)
 
 You can add the layer to your sources and to your `bblayers.conf` file and then add one or more of the following recipes to your image, using `IMAGE_INSTALL`.
 

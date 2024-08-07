@@ -269,7 +269,7 @@ Linux nanopi-k1-plus 5.3.13-allwinner #1 SMP Mon Dec 16 20:21:03 UTC 2019 aarch6
 That means that the Yocto image runs on the 5.3.13 SMP kernel and the architecture is aarch64. You can also test that docker, gitlab-runner and the toolchain are there. For example you can just git clone the STM32 template code I've used in the previous posts and build the code. If that builds then you're good to go. In my case, I've used these commands here in the nanopi-k1-plus:
 
 ```sh
-git clone --recursive https://dimtass@bitbucket.org/dimtass/stm32f103-cmake-template.git
+git clone --recursive https://github.com/dimtass/stm32f103-cmake-template.git
 cd stm32f103-cmake-template
 time TOOLCHAIN_DIR=/opt/toolchains/gcc-arm-none-eabi-9-2019-q4-major CLEANBUILD=true USE_STDPERIPH_DRIVER=ON SRC=src_stdperiph ./build.sh
 ```

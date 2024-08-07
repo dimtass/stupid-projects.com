@@ -175,7 +175,7 @@ I'll come back to this with an example later, after I describe how to build the 
 
 The meta layer for the NanoPi-Neo4 is located here:
 
-[https://bitbucket.org/dimtass/meta-nanopi-neo4/src/master/](https://bitbucket.org/dimtass/meta-nanopi-neo4/src/master/)
+[https://github.com/dimtass/meta-nanopi-neo4](https://github.com/dimtass/meta-nanopi-neo4)
 
 There's a quite thorough README file in the repo, so please read that first, because I'll skip this step in here, in order to update only one place regarding the procedure. Pretty much you need to git clone the needed meta layers and then run the script to setup the environment and build the image you want. In this case, I'll build and test the rk-image-testing for the rk-wayland, so my setup environment command is:
 

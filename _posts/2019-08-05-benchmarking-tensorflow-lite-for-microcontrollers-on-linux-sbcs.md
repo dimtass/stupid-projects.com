@@ -17,7 +17,7 @@ img_extras: ".shadow"
 
 In this post, I'll show you the results of benchmarking the TensorFlow Lite for microcontrollers (tflite-micro) API not on various MCUs this time, but on various Linux SBCs (Single-Board Computers). For this purpose I've used a code which I've originally written to test and compare the tflite-micro API which is written in C++ and the tflite python API. This is the repo:
 
-[https://bitbucket.org/dimtass/tflite-micro-python-comparison](https://bitbucket.org/dimtass/tflite-micro-python-comparison)
+[https://github.com/dimtass/tflite-micro-python-comparison](https://github.com/dimtass/tflite-micro-python-comparison)
 
 Then, I thought why not test the tflite-micro API on various _SBCs_ that I have around.
 
@@ -122,7 +122,7 @@ sudo apt install cmake g++
 Then you just need to clone the repo, build the benchmark and run it. Just be aware that the output filename is changing depending on the CPU architecture. So for an aarch64 CPU run those commands:
 
 ```sh
-git clone https://dimtass@bitbucket.org/dimtass/tflite-micro-python-comparison.git
+git git@github.com:dimtass/tflite-micro-python-comparison.git
 cd tflite-micro-python-comparison/
 ./build.sh
 ./build-aarch64/src/mnist-tflite-micro-aarch64
@@ -188,7 +188,7 @@ Since the nanopi-neo4 performed better than the other SBCs, I've build an image 
 
 Initially, I've tried the armbian build because it's easy for everyone to reproduce, but then I though to test also my Yocto layer. Therefore I've used this repo here:
 
-[https://bitbucket.org/dimtass/meta-nanopi-neo4](https://bitbucket.org/dimtass/meta-nanopi-neo4)
+[https://github.com/dimtass/meta-nanopi-neo4](https://github.com/dimtass/meta-nanopi-neo4)
 
 There are details how to use the layer and build in the README file of this repo, but this is the command I've used to build the image I've tested (after setting up the repo as described in the readme).
 

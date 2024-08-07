@@ -4,3 +4,4 @@ _site/
 *.swp
 .jekyll-cache/
 wp-content/
+backups/

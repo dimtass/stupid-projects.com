@@ -55,7 +55,6 @@ In order to use or test any of the above things you need to build and flash a di
 
 To build the distro I've used, you need this repo here:
 
-  - [https://bitbucket.org/dimtass/meta-stm32mp1-bsp-base/src/master/](https://bitbucket.org/dimtass/meta-stm32mp1-bsp-base/src/master/)  
   - [https://github.com/dimtass/meta-stm32mp1-bsp-base](https://github.com/dimtass/meta-stm32mp1-bsp-base)  
   - [https://gitlab.com/dimtass/meta-stm32mp1-bsp-base](https://gitlab.com/dimtass/meta-stm32mp1-bsp-base)
 
@@ -63,7 +62,7 @@ The README file in the repo is quite thorough. So, in order to build the image y
 
 ```sh
 cd stm32mp1-yocto
-repo init -u https://bitbucket.org/dimtass/meta-stm32mp1-bsp-base/src/master/default.xml
+repo init -u https://github.com/dimtass/meta-stm32mp1-bsp-base/blob/master/default.xml
 repo sync
 ```
 
@@ -98,7 +97,6 @@ Assuming that you have the above image built, then you can flash it in the targe
 
 The code is located in this repo:
 
-  - [https://bitbucket.org/dimtass/stm32mp1-rpmsg-test/src/master/](https://bitbucket.org/dimtass/stm32mp1-rpmsg-test/src/master/)
   - [https://github.com/dimtass/stm32mp1-rpmsg-test](https://github.com/dimtass/stm32mp1-rpmsg-test)
   - [https://gitlab.com/dimtass/stm32mp1-rpmsg-test](https://gitlab.com/dimtass/stm32mp1-rpmsg-test)
 

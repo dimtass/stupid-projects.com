@@ -33,7 +33,7 @@ Excited already? No? Well, don't forget it's a stupid project. There's always a 
 
 ## Components
 
-Spoiler. For me, one of the most interesting thing in this stupid project was the amount of the different boards that I've used to run those benchmarks. I think what I liked most was the fact that I was able to test all these different boards with the same code. For sure, the stm32f103 (blue-pill) was more optimized as I've used my own low level [cmake template](https://bitbucket.org/dimtass/stm32f103-cmake-template/src/master/), but nevertheless I enjoyed having most of my boards running the same neural network code. Well, I didn't used any of my PSoC 4 & 5, STM8, LPC1110, LPC1768 and a few other boards I have around, but I didn't have more time to spend on this. Maybe at some later point I'll add the benchmark for those, too.
+Spoiler. For me, one of the most interesting thing in this stupid project was the amount of the different boards that I've used to run those benchmarks. I think what I liked most was the fact that I was able to test all these different boards with the same code. For sure, the stm32f103 (blue-pill) was more optimized as I've used my own low level [cmake template](https://github.com/dimtass/stm32f103-cmake-template), but nevertheless I enjoyed having most of my boards running the same neural network code. Well, I didn't used any of my PSoC 4 & 5, STM8, LPC1110, LPC1768 and a few other boards I have around, but I didn't have more time to spend on this. Maybe at some later point I'll add the benchmark for those, too.
 
 ##### STM32F103C8T6 (aka blue-pill)
 
@@ -69,9 +69,9 @@ Yep, we all now this board. An L106 32-bit RISC CPU running up to 160MHz.
 
 ## A simple NN
 
-OK, so let's now jump to the interesting stuff. Everything that is related to this project and for all the posts are in this bitbucket repo:
+OK, so let's now jump to the interesting stuff. Everything that is related to this project and for all the posts are in this github repo:
 
-[https://bitbucket.org/dimtass/machine-learning-for-embedded/src/master/](https://bitbucket.org/dimtass/machine-learning-for-embedded/src/master/)
+[https://github.com/dimtass/machine-learning-for-embedded](https://github.com/dimtass/machine-learning-for-embedded)
 
 Although it's not the best thing to have all these different things in one repo, it makes more sense as it makes it easier to maintain and update. During this post series I'll use different parts from this repo, so everything you see there are not only for the this first post.
 
@@ -137,7 +137,7 @@ To do that, is better to use a jupyter notebook to do all the design, training, 
 
 4. Next git clone the repo for this project and run Jupyter.
 ```sh
-git clone git@bitbucket.org:dimtass/machine-learning-for-embedded.git
+git clone git@github.com:dimtass/machine-learning-for-embedded.git
 cd machine-learning-for-embedded
 jupyter notebook &
 ```
@@ -150,7 +150,7 @@ Again, I won't go into the details of Jupyter notebooks and python. I guess ther
 
 Let's see the notepad now.
 
-**Note:** In case you just want to view the notebook and evaluate your results, you don't have to install Jupyter, but instead you can just view the notebook in the bitbucket repo [here](https://bitbucket.org/dimtass/machine-learning-for-embedded/src/master/jupyter_notebook/Simple%20python%20NN.ipynb?viewer=nbviewer).
+**Note:** In case you just want to view the notebook and evaluate your results, you don't have to install Jupyter, but instead you can just view the notebook in the github repo [here](https://github.com/dimtass/machine-learning-for-embedded/blob/master/jupyter_notebook/Simple%20python%20NN.ipynb).
 
 First we import some functions from numpy to simplify the code. Then we create a NeuralNetwork class that is able to train and evaluate our simple NN. Then we create a training set for our binary inputs. As we've seen before, 3 binary inputs have 8 possible combinations and we choose to use a train set of 4 inputs. That means that we'll train our NN with only 4 out of 8 combinations and then expect the NN to be able to predict the rest by itself. So we train with the 50% of the possible values.
 

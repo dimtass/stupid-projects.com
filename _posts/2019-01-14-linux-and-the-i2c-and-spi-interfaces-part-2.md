@@ -41,7 +41,7 @@ This stupid project is focused actually on the Linux kernel. As everyone learns 
 
 Therefore, what happens if you have a couple of _fast_ devices that you want to interface under various conditions, like the CPU has a low or heavy background load? To find this out we actually need a fast slave, therefore the stm32f103 is just right for that, as we’ve seen in this [stupid project]({% post_url 2018-07-19-driving-an-ili9341-lcd-with-an-overclocked-stm32f103 %}) that the SPI can achieve up to 63MHz by using DMA, which is way faster that the Arduino nano (and probably even the nanopi neo actually). So, by assuring that the slave device won’t be our bottleneck were good to go. Here you’ll find the repo for the project:
 
-[https://bitbucket.org/dimtass/linux-stm32-spi-i2c/src/master/](https://bitbucket.org/dimtass/linux-stm32-spi-i2c/src/master/)
+[https://github.com/dimtass/linux-stm32-spi-i2c](https://github.com/dimtass/linux-stm32-spi-i2c)
 
 In order to build the nanopi neo image for both SMP and RT kernel you need Yocto, but again I won’t get into the details on that (you can read the README.md file in the repo for more detailed info). Therefore, to switch between the SMP and RT kernel you need to use either of the following combinations in the build/conf/local.conf file:
 

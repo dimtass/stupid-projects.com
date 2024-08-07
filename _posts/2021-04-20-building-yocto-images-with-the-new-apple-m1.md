@@ -3,11 +3,10 @@ title: Building Yocto images with the new Apple M1
 date: 2021-04-20T15:55:29+00:00
 author: dimtass
 layout: post
-categories: ["Yocto"]
-tags: ["Benchmarks", "Embedded Linux", "Yocto", "Apple M1"]
-img_src: "/images"
-img_width: 580
-img_extras: ".shadow"
+guid: https://www.stupid-projects.com/?p=1113
+permalink: /building-yocto-images-with-the-new-apple-m1/
+wp_featherlight_disable:
+  - ""
 ---
 ## Intro
 
@@ -44,10 +43,48 @@ But, how can the MBA build a Yocto image? That's easy. Using virtualization, of 
 
 In case of parallels, there are a few images that you can use for free and Ubuntu 20.04 is one of them. Therefore, in just a few minutes I had a VM running and ready to build Yocto images. After doing all the needed updated I've compared the two Ubuntu versions and these are the results.
 
-|         | Ryzen Ubuntu	| Parallels Ubuntu  |
-|---------|---------------|-------------------|
-| Version	| 20.04.2 LTS	  | 20.04.2 LTS       |
-| Kernel	| 5.9.10-050910	| 5.4.0-66-generic  |
+<table style="border-collapse: collapse; width: 100%; height: 84px;" border="1">
+  <tr style="height: 28px;">
+    <td style="width: 33.3333%; height: 28px;">
+    </td>
+    
+    <td style="width: 33.3333%; height: 28px;">
+       Ryzen Ubuntu 
+    </td>
+    
+    <td style="width: 33.3333%; height: 28px;">
+       Parallels Ubuntu 
+    </td>
+  </tr>
+  
+  <tr style="height: 28px;">
+    <td style="width: 33.3333%; height: 28px;">
+       Version 
+    </td>
+    
+    <td style="width: 33.3333%; height: 28px;">
+      20.04.2 LTS
+    </td>
+    
+    <td style="width: 33.3333%; height: 28px;">
+      20.04.2 LTS
+    </td>
+  </tr>
+  
+  <tr style="height: 28px;">
+    <td style="width: 33.3333%; height: 28px;">
+       Kernel 
+    </td>
+    
+    <td style="width: 33.3333%; height: 28px;">
+      5.9.10-050910
+    </td>
+    
+    <td style="width: 33.3333%; height: 28px;">
+      5.4.0-66-generic
+    </td>
+  </tr>
+</table>
 
 As you can see both Ubuntu versions are the same, but I'm using a newer kernel on my workstation. I've tried to build the same kernel for Parallels but although I succeeded, when I've tried to boot from that kernel it failed. I guess it needs some customization in order to boot with Parallels. Didn't spend more time on it.
 
@@ -57,7 +94,7 @@ My benchmark will be my [allwinner yocto BSP repo](https://gitlab.com/dimtass/me
 
 This is the parallels configuration in the MBA:
 
-![]({{page.img_src}}/mba-parallels-configuration.png){: width="{{page.img_width}}" {{page.img_extras}}}
+<img loading="lazy" class="aligncenter size-large wp-image-1116" src="https://www.stupid-projects.com/wp-content/uploads/2021/04/mba-parallels-configuration-1024x973.png" alt="" width="660" height="627" srcset="https://www.stupid-projects.com/wp-content/uploads/2021/04/mba-parallels-configuration-1024x973.png 1024w, https://www.stupid-projects.com/wp-content/uploads/2021/04/mba-parallels-configuration-300x285.png 300w, https://www.stupid-projects.com/wp-content/uploads/2021/04/mba-parallels-configuration-768x729.png 768w, https://www.stupid-projects.com/wp-content/uploads/2021/04/mba-parallels-configuration.png 1356w" sizes="(max-width: 660px) 100vw, 660px" /> 
 
 As you can see I've used all 8 cores and only 8GB of RAM. The reason I didn't use the whole RAM is to get so get a bit similar results with the much cheaper basic version of MBA with 8GB RAM and 256GB SSD.
 
@@ -76,7 +113,7 @@ git clone --depth 1 -b dunfell https://github.com/openembedded/meta-openembedded
 cd ..
 DISTRO=allwinner-distro-console MACHINE=nanopi-k1-plus source ./setup-environment.sh build
 time bitbake allwinner-console-image
-```
+
 
 Actually, I've build the image twice and I've only benchmarked the second build. The reason I did that is because I wanted the first run to download all the needed packages. Then I've deleted the build folder which also includes the sstate-cache and then re-build the image having the packages already in the download folder.
 
@@ -84,31 +121,107 @@ In case of MBA I've ran three builds, one while it was connected to the mains po
 
 Finally, in case of the Ryzen workstation to change the number of threads I've edited the build/conf/local.conf file before the build. I've also made sure that all 8 cores are used in MBA as you can see here:
 
-![]({{page.img_src}}/mba-parallels-cpu-utilization_2.png){: width="{{page.img_width}}" {{page.img_extras}}}
+<img loading="lazy" class="aligncenter size-large wp-image-1121" src="https://www.stupid-projects.com/wp-content/uploads/2021/04/mba-parallels-cpu-utilization_2-819x1024.png" alt="" width="660" height="825" srcset="https://www.stupid-projects.com/wp-content/uploads/2021/04/mba-parallels-cpu-utilization_2-819x1024.png 819w, https://www.stupid-projects.com/wp-content/uploads/2021/04/mba-parallels-cpu-utilization_2-240x300.png 240w, https://www.stupid-projects.com/wp-content/uploads/2021/04/mba-parallels-cpu-utilization_2-768x960.png 768w, https://www.stupid-projects.com/wp-content/uploads/2021/04/mba-parallels-cpu-utilization_2.png 974w" sizes="(max-width: 660px) 100vw, 660px" /> 
 
 ## Results
 
 First I'll add the screenshots of the results and then I'll list them in a table. These are the screenshots (click on them to enlarge):
 
-![]({{page.img_src}}/yocto-ryzen-16c.png){: width="{{page.img_width}}" {{page.img_extras}}}
-![]({{page.img_src}}/yocto-ryzen-8c.png){: width="{{page.img_width}}" {{page.img_extras}}}
-![]({{page.img_src}}/mba-parallels-results-battery.png){: width="{{page.img_width}}" {{page.img_extras}}}
-![]({{page.img_src}}/mba-parallels-results-mains_1.png){: width="{{page.img_width}}" {{page.img_extras}}}
+<div id='gallery-20' class='gallery galleryid-1113 gallery-columns-3 gallery-size-thumbnail'>
+  <figure class='gallery-item'> 
+  
+  <div class='gallery-icon landscape'>
+    <a href='https://www.stupid-projects.com/building-yocto-images-with-the-new-apple-m1/yocto-ryzen-16c/'><img width="150" height="150" src="https://www.stupid-projects.com/wp-content/uploads/2021/04/yocto-ryzen-16c-150x150.png" class="attachment-thumbnail size-thumbnail" alt="" loading="lazy" aria-describedby="gallery-20-1120" /></a>
+  <figcaption class='wp-caption-text gallery-caption' id='gallery-20-1120'> Ryzen - 16 threads </figcaption></figure><figure class='gallery-item'> 
+  
+  <div class='gallery-icon landscape'>
+    <a href='https://www.stupid-projects.com/building-yocto-images-with-the-new-apple-m1/yocto-ryzen-8c/'><img width="150" height="150" src="https://www.stupid-projects.com/wp-content/uploads/2021/04/yocto-ryzen-8c-150x150.png" class="attachment-thumbnail size-thumbnail" alt="" loading="lazy" aria-describedby="gallery-20-1119" /></a>
+  <figcaption class='wp-caption-text gallery-caption' id='gallery-20-1119'> Ryzen 8 - threads </figcaption></figure><figure class='gallery-item'> 
+  
+  <div class='gallery-icon landscape'>
+    <a href='https://www.stupid-projects.com/building-yocto-images-with-the-new-apple-m1/mba-parallels-results-battery/'><img width="150" height="150" src="https://www.stupid-projects.com/wp-content/uploads/2021/04/mba-parallels-results-battery-150x150.png" class="attachment-thumbnail size-thumbnail" alt="" loading="lazy" aria-describedby="gallery-20-1132" /></a>
+  <figcaption class='wp-caption-text gallery-caption' id='gallery-20-1132'> MBA on battery </figcaption></figure><figure class='gallery-item'> 
+  
+  <div class='gallery-icon landscape'>
+    <a href='https://www.stupid-projects.com/building-yocto-images-with-the-new-apple-m1/mba-parallels-results-mains_1/'><img width="150" height="150" src="https://www.stupid-projects.com/wp-content/uploads/2021/04/mba-parallels-results-mains_1-150x150.png" class="attachment-thumbnail size-thumbnail" alt="" loading="lazy" aria-describedby="gallery-20-1133" /></a>
+  <figcaption class='wp-caption-text gallery-caption' id='gallery-20-1133'> MBA on mains with workload </figcaption></figure>
 
 
-System	| Time
--|-
-Ryzen 7 w/ 16 threads	| 55m4,071s
-Ryzen 7 w/ 8 threads	| 53m9,905s
-Macbook Air w/ 8 threads on mains	| TBD
-Macbook Air w/ 8 threads on battery	| 62m12.737
-Macbook Air w/ 8 threads (w/ extra load)	| 69m3.161s
+
+
+<table style="border-collapse: collapse; width: 100%;" border="1">
+  <tr>
+    <td style="width: 58.7879%;">
+       System 
+    </td>
+    
+    <td style="width: 41.2121%;">
+       Time 
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="width: 58.7879%;">
+      Ryzen 7 w/ 16 threads
+    </td>
+    
+    <td style="width: 41.2121%;">
+      55m4,071s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="width: 58.7879%;">
+      Ryzen 7 w/ 8 threads
+    </td>
+    
+    <td style="width: 41.2121%;">
+      53m9,905s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="width: 58.7879%;">
+      Macbook Air w/ 8 threads on mains
+    </td>
+    
+    <td style="width: 41.2121%;">
+      TBD
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="width: 58.7879%;">
+      Macbook Air w/ 8 threads on battery
+    </td>
+    
+    <td style="width: 41.2121%;">
+      62m12.737
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="width: 58.7879%;">
+      Macbook Air w/ 8 threads (w/ extra load)
+    </td>
+    
+    <td style="width: 41.2121%;">
+      69m3.161s
+    </td>
+  </tr>
+</table>
 
 I don't know what you expected, but of course the MBA is slower compared my workstation. Well, it's slower, but for how much, though?
 
 I mean look at the figures! Personally, I'm amazed that the MBA managed to build the Yocto image in 62 mins while on battery, which is a bit more that one hour. And in that time the battery only dropped to 71%! Click the following image to enlarge.
 
-![]({{page.img_src}}/mba-parallels-after-battery-build.png){: width="{{page.img_width}}" {{page.img_extras}}}
+<div id='gallery-21' class='gallery galleryid-1113 gallery-columns-3 gallery-size-thumbnail'>
+  <figure class='gallery-item'> 
+  
+  <div class='gallery-icon landscape'>
+    <a href='https://www.stupid-projects.com/building-yocto-images-with-the-new-apple-m1/mba-parallels-after-battery-build/'><img width="150" height="150" src="https://www.stupid-projects.com/wp-content/uploads/2021/04/mba-parallels-after-battery-build-150x150.png" class="attachment-thumbnail size-thumbnail" alt="" loading="lazy" /></a>
+  </figure>
+
 
 Have in mind that my allwinner build is a bit a heavy build, so even my workstation needs almost an hour. Also the difference with the 8 thread builds is 9 minutes. Yes, 9 minutes are quite a lot. But, we're talking about a fanless laptop running dead silent.
 

@@ -50,7 +50,6 @@ So, let's have a look at the firmware of the CM4. You can find the firmware here
 
 [https://gitlab.com/dimtass/stm32mp1-rpmsg-adcsampler](https://gitlab.com/dimtass/stm32mp1-rpmsg-adcsampler)
 [https://github.com/dimtass/stm32mp1-rpmsg-adcsampler](https://github.com/dimtass/stm32mp1-rpmsg-adcsampler)
-[https://bitbucket.org/dimtass/stm32mp1-rpmsg-adcsampler](https://bitbucket.org/dimtass/stm32mp1-rpmsg-adcsampler)
 
 In the repo's README file you can read more information on how to build the firmware, but since I'm using Yocto I won't get into those details. The important files of the firmware are the `source/src_hal/main.c` and `source/src_hal/stm32mp1xx_hal_msp.c`. Also in main.h you'll find the main structures I'm using for the ADCs.
 
@@ -330,7 +329,6 @@ For the _STM32MP1_ I've created a BSP base layer that simplifies a lot the Yocto
 
   - [https://gitlab.com/dimtass/meta-stm32mp1-bsp-base](https://gitlab.com/dimtass/meta-stm32mp1-bsp-base)
   - [https://github.com/dimtass/meta-stm32mp1-bsp-base](https://github.com/dimtass/meta-stm32mp1-bsp-base)
-  - [https://bitbucket.org/dimtass/meta-stm32mp1-bsp-base](https://bitbucket.com/dimtass/meta-stm32mp1-bsp-base)
 
 I've written thorough details on how to use it and be able to build an image in the repo README file, therefore I'll skip this step and focus on the important stuff. First you need to build the `stm32mp1-qt-eglfs-image` image (well you could also build another, but this is what I did for also other reason which are irrelevant to the post). Then you need to flash the image on the STM32MP1. I didn't add the firmware and the adcsamplerbeat recipes in the image, but instead I've just built the recipes and the scp the deb files in the target and install them using dpkg, which works just fine for developing and testing.
 
@@ -340,7 +338,6 @@ But you need to add the adcsampler recipe yourself. For that reason I've created
 
   - [https://gitlab.com/dimtass/meta-adcsamplebeat](https://gitlab.com/dimtass/meta-adcsamplebeat)
   - [https://github.com/dimtass/meta-adcsamplebeat](https://github.com/dimtass/meta-adcsamplebeat)
-  - [https://bitbucket.org/dimtass/meta-adcsamplebeat](https://bitbucket.org/dimtass/meta-adcsamplebeat)
 
 To use this recipe you need to add it your sources folder and then also add it in the bblayers. First clone the repo in the sources folder.
 

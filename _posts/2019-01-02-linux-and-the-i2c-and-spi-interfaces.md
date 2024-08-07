@@ -32,7 +32,7 @@ I tried to keep everything simple and cheap. For the Linux OS I've chosen to use
 
 You can see the full specs and pinout description [here](http://wiki.friendlyarm.com/wiki/index.php/NanoPi_NEO). You will find the guide how to use the nano-pi neo in the repo _README.md_ file here:
 
-[https://bitbucket.org/dimtass/linux-arduino-spi-i2c/src/master/](https://bitbucket.org/dimtass/linux-arduino-spi-i2c/src/master/)
+[https://github.com/dimtass/linux-arduino-spi-i2c](https://github.com/dimtass/linux-arduino-spi-i2c)
 
 #### Raspberry pi
 
@@ -85,7 +85,7 @@ You will need to use two pull-up resistors for the _SDA_ and _SCL_. I've used 10
 
 You need to flash the Arduino with the proper firmware and also boot up the nanopi-neo with a proper Linux distribution. For the second thing you have two option that I'll explain later. So, clone this repo from here:
 
-[https://bitbucket.org/dimtass/linux-arduino-spi-i2c/src/master/](https://bitbucket.org/dimtass/linux-arduino-spi-i2c/src/master/)
+[https://github.com/dimtass/linux-arduino-spi-i2c](https://github.com/dimtass/linux-arduino-spi-i2c)
 
 There you will find the Arduino sketch in the `arduino-i2c-spi` folder. Use the Arduino IDE to build and to upload the firmware.
 
@@ -127,7 +127,7 @@ enable_uart=1
 
 #### Raw access from user space using bash
 
-Bash is cool (or any other shell). You can use it to read and write raw data from almost any hardware interface. From the bitbucket repo, have a look in the `bash-spidev-example.sh`. That's a simple bash script that is able to read data from the I2C and then send data to the SPI using the spidev module. To do that the only thing you need to take care of is to load the spidev overlay and install the spi-tools. The problem with the debian stretch repos is that the spi-tools is not in the available packages, so you need to either build it yourself. To do this, just login as root and run the following commands on the armbian shell:
+Bash is cool (or any other shell). You can use it to read and write raw data from almost any hardware interface. From the github repo, have a look in the `bash-spidev-example.sh`. That's a simple bash script that is able to read data from the I2C and then send data to the SPI using the spidev module. To do that the only thing you need to take care of is to load the spidev overlay and install the spi-tools. The problem with the debian stretch repos is that the spi-tools is not in the available packages, so you need to either build it yourself. To do this, just login as root and run the following commands on the armbian shell:
 
 ```sh
 apt-get install -y git

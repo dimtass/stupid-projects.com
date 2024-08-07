@@ -13,7 +13,7 @@ img_extras: ".shadow"
 
 There are many silicon vendors that make MCUs and most of them they use the same cores (e.g. ARM Cortex). Therefore, in order to compete each other, vendors need to make themselves stand out from their competitors and this is done in many different ways. Of course, the most important is the price, but some times that's not enough, because even the low price doesn't mean that the controller fits your project. Therefore, vendors come with different peripherals, clocks, power saving modes e.t.c.
 
-Sometimes though, vendors provide some very interesting features in their cores and in this post I will get down to the Core-Coupled Memory (CCM) that you can find in some STM32 MCUs. In this post I'll use the STM32F303CC, as I've already have written a cmake template project for this [here](https://bitbucket.org/dimtass/stm32f303-cmake-template/src/master/) that I use for fast development and testing.
+Sometimes though, vendors provide some very interesting features in their cores and in this post I will get down to the Core-Coupled Memory (CCM) that you can find in some STM32 MCUs. In this post I'll use the STM32F303CC, as I've already have written a cmake template project for this [here](https://github.com/dimtass/stm32f303-cmake-template) that I use for fast development and testing.
 
 ## Components
 
@@ -49,9 +49,9 @@ As you can see the CCM SRAM is connected only to the i-bus (S0 <-> M3) and D-bus
 
 So how to use it then? First you need to clone this cmake repo from here:
 
-[https://bitbucket.org/dimtass/stm32f303-ccmram-test/src](https://bitbucket.org/dimtass/stm32f303-ccmram-test/src)
+[https://github.com/dimtass/stm32f303-ccmram-test](https://github.com/dimtass/stm32f303-ccmram-test)
 
-This is a cmake project based on this template [here](https://bitbucket.org/dimtass/stm32f303-cmake-template/src/master/) and it's configured to enable the CCM RAM area. By default the CCM RAM is only enabled in the linker file which is the `source/config/LinkerScripts/STM32F303xC/STM32F303VC_FLASH.ld`, but I had also to edit the start up file `source/libs/cmsis/device/startup_stm32f30x.s` for actually be able to use the CCM RAM. In the start up file you'll find this code here:
+This is a cmake project based on this template [here](https://github.com/dimtass/stm32f303-cmake-template) and it's configured to enable the CCM RAM area. By default the CCM RAM is only enabled in the linker file which is the `source/config/LinkerScripts/STM32F303xC/STM32F303VC_FLASH.ld`, but I had also to edit the start up file `source/libs/cmsis/device/startup_stm32f30x.s` for actually be able to use the CCM RAM. In the start up file you'll find this code here:
 
 ```asm
 /* Copy the data segment initializers from flash to SRAM and CCMRAM */  
@@ -427,7 +427,7 @@ Instead of setting up a build environment, then if you have docker you can use m
 
 ```sh
 cd ~/Downloads
-git clone https://dimtass@bitbucket.org/dimtass/stm32f303-ccmram-test.git
+git clone https://github.com/dimtass/stm32f303-cmake-template.git
 cd stm32f303-ccmram-test
 ```
 
@@ -549,7 +549,7 @@ To be honest, I didn't expect that the flash would be faster than the RAM, but I
 
 Finally, the `LZ4_FORCE_INLINE` in the `LZ4_compress_generic()` it seems that makes performance worse and the GCC compiler with the compiler and linker flags I've used makes better job.
 
-After this, I've also updated my [cmake template](https://bitbucket.org/dimtass/stm32f303-cmake-template/src/master/) for the STM32F303CC, so I'm able to use the `__attribute__` directive for both `.ccmram` and `.sram` areas and place functions in there.
+After this, I've also updated my [cmake template](https://github.com/dimtass/stm32f303-cmake-template) for the STM32F303CC, so I'm able to use the `__attribute__` directive for both `.ccmram` and `.sram` areas and place functions in there.
 
 I hope you enjoyed this stupid project.
 

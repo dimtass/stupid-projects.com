@@ -31,7 +31,7 @@ Also, after I've finished the post for the x-cube-ai, the same day the new versi
 
 You'll find all the source code for this project here:
 
-[https://bitbucket.org/dimtass/stm32f746-x-cube-ai-mnist](https://bitbucket.org/dimtass/stm32f746-x-cube-ai-mnist)
+[https://github.com/dimtass/stm32f746-x-cube-ai-mnist](https://github.com/dimtass/stm32f746-x-cube-ai-mnist)
 
 So, let's dive into it.
 
@@ -39,7 +39,7 @@ So, let's dive into it.
 
 ST presents the [X-CUBE-AI](https://www.st.com/en/embedded-software/x-cube-ai.html) as an _"STM32Cube Expansion Package part of the STM32Cube.AI ecosystem and extending STM32CubeMX capabilities with automatic conversion of pre-trained Neural Network and integration of generated optimized library into the user's project"_. Yeah, I know, fancy words. In plain English that means that it's just a static library for the STM32 MCUs that uses the cmsis-dsp accelerations and a set of tools that convert various model formats to the format that the library can process. That's it. And it works really well.
 
-There's also a very informative video [here](https://www.youtube.com/watch?v=grgNXdkmzzQ), that shows the procedure you need to follow in order to create a new x-cube-ai project and that's the one I've also used to create the project in this repo. I believe it's very straight forward and there's no reason to explain anything more than that. The only different thing I do always is that I'm just integrating the resulted code from STM32CubeMX to my cmake [template](https://bitbucket.org/dimtass/stm32f7xx_cmake_template/).
+There's also a very informative video [here](https://www.youtube.com/watch?v=grgNXdkmzzQ), that shows the procedure you need to follow in order to create a new x-cube-ai project and that's the one I've also used to create the project in this repo. I believe it's very straight forward and there's no reason to explain anything more than that. The only different thing I do always is that I'm just integrating the resulted code from STM32CubeMX to my cmake [template](https://github.com/dimtass/stm32f7xx_cmake_template).
 
 So the x-cube-ai adds some tools in the CubeMX GUI and you can use them to analyze the model, compress the weight values, and validate the model on both desktop and the target. With x-cube-ai, you can finally create source code for 3 types of projects, which are the SystemPerformance, Validation and ApplicationTemplate. For the first two projects you just compile them, flash and run, so you don't have to write any code yourself (unless you want to change default behaviour). As you can see on the YouTube link I've posted, you can choose the type of project in the `Pinout & Configuration` tab and then click in the `Additional Software`. From that list expand the `X-CUBE-AI/Application` (be careful to select the proper (=latest?) version if you have many) and then in the Selection column, select the type of the project you want to build.
 
@@ -59,7 +59,7 @@ Creatingreportfile/home/dimtass/STM32Cube/Repository/Packs/STMicroelectronics/X-
  
 Exec/reportsummary(analyze0.558serr=0) 
 ------------------------------------------------------------------------------------------------------------------------ 
-modelfile:/rnd/bitbucket/machine-learning-for-embedded/code-stm32f746-xcube/mnist.tflite 
+modelfile:/rnd/github/machine-learning-for-embedded/code-stm32f746-xcube/mnist.tflite 
 type:tflite(tflite) 
 c_name:mnistkeras 
 compression:4 
@@ -128,7 +128,7 @@ This is the output that you get by just running the analyze tool on the imported
 
 ## Model RAM/ROM usage
 
-So in this case the ROM needed for the model is 263760 bytes. In [part 3]({% post_url 2019-06-27-machine-learning-on-embedded-part-3 %}), that was 375740 bytes (see [section 3 in the jupyter notepad](https://bbnbviewer.us-west-1.prod.public.atl-paas.net/notebook?repo=dimtass%2Fstm32f746-x-cube-ai-mnist&cset=d89704fffc8d0d33cbc746259f98985fb8f89caf&name=MNIST-TensorFlow.ipynb&path=jupyter_notebook%2FMNIST-TensorFlow.ipynb&xdm_c=channel-61356ac9-d642-48c2-be40-332f61eb754b&xdm_e=https%3A%2F%2Fbitbucket.org&crev=7278f871aa92%2Fdist%2Fconnect%2Fv5&jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb25uZWN0aW9uOjM1OTMxNTIiLCJpYXQiOjE1NjQxMzkzMzcsInFzaCI6ImFjMTViYjQ3M2ZlNzFkZTQ5NmQ3YTIwYjNiMTdlZmIwMjYxZTc2MDU5ODMwZGEwZDEzNDYyYjhkODlkMGU2YjUiLCJhdWQiOiJjb25uZWN0aW9uOjM1OTMxNTIiLCJleHAiOjE1NjQxMzk2Mzd9.CvHeDWXkG_0fUJhmDKR7DPJF4CxP_9Y_V_fr6lvgIX4#3.-Convert-the-model-to-tflite)). That difference is not because I've used quantization, but because of the 4x compression selection I've made for the weights in the tool (see in the [YouTube video](https://youtu.be/grgNXdkmzzQ?t=211) which does the same time=3:21). Therefore, the decrease in the model size in ROM is from that compression. According to the tools that's -29.35% compared to the original size. In the current project the model binary blob is in the `source/src/mnistkeras_data.c` file and it's an C array like the one in the tflite-micro project. The similar file in the tf-lite model was the `source/src/inc/model_data.h`. Those sizes are without quantization, because I didn't manage to convert the model to UINT8 as the TFLiteConverter converts the model only to INT8, which is not supported in tflite. I'm still puzzled with that and I can't figure out why this happening and I couldn't find any documentation or example how to do that.
+So in this case the ROM needed for the model is 263760 bytes. In [part 3]({% post_url 2019-06-27-machine-learning-on-embedded-part-3 %}), that was 375740 bytes (see [section 3 in the jupyter notepad](https://github.com/dimtass/stm32f746-x-cube-ai-mnist/blob/master/jupyter_notebook/MNIST-TensorFlow.ipynb). That difference is not because I've used quantization, but because of the 4x compression selection I've made for the weights in the tool (see in the [YouTube video](https://youtu.be/grgNXdkmzzQ?t=211) which does the same time=3:21). Therefore, the decrease in the model size in ROM is from that compression. According to the tools that's -29.35% compared to the original size. In the current project the model binary blob is in the `source/src/mnistkeras_data.c` file and it's an C array like the one in the tflite-micro project. The similar file in the tf-lite model was the `source/src/inc/model_data.h`. Those sizes are without quantization, because I didn't manage to convert the model to UINT8 as the TFLiteConverter converts the model only to INT8, which is not supported in tflite. I'm still puzzled with that and I can't figure out why this happening and I couldn't find any documentation or example how to do that.
 
 Now, let's go to the RAM usage. With x-cube-ai the RAM needed is only 36840 bytes! In the tflite-micro I needed 151312 bytes (see the table in the `Model RAM Usage` section [here](https://www.stupid-projects.com/machine-learning-on-embedded-part-3/)). That's 4x times less RAM. It's amazing. The reason for that is that in tflite-micro the `micro_allocator` expands the layers of the model in the RAM, but in the x-cube-ai that doesn't happen. From the above report (and from what I've seen) it seems that the layers remain in the ROM and it seems that the API only allocates RAM for the needed operations.
 
@@ -239,7 +239,7 @@ Clayeriddescoshapefmtms
  
 Exec/reportsummary(validate0.000serr=0) 
 ------------------------------------------------------------------------------------------------------------------------ 
-modelfile:/rnd/bitbucket/machine-learning-for-embedded/code-stm32f746-xcube/mnist.tflite 
+modelfile:/rnd/github/machine-learning-for-embedded/code-stm32f746-xcube/mnist.tflite 
 type:tflite(tflite) 
 c_name:mnistkeras 
 compression:4 
@@ -385,7 +385,7 @@ I don't like the fact that I don't have access in there, but it is what it is, s
 
 You can find the C++ cmake project here:
 
-[https://bitbucket.org/dimtass/stm32f746-x-cube-ai-mnist](https://bitbucket.org/dimtass/stm32f746-x-cube-ai-mnist)
+[https://github.com/dimtass/stm32f746-x-cube-ai-mnist](https://github.com/dimtass/stm32f746-x-cube-ai-mnist)
 
 In the `source/libs` folder you'll find all the necessary libraries which are CMSIS, the STM32F7xx_HAL_Driver, flatbuffers and the x-cube-ai lib. All these are building as static libraries and then the main.cpp app is linked against those static libs. You will find the cmake files for those libs in `source/cmake`. The README.md file in the repo is quite thorough about the build options and the different builds. To build the code run this command:
 
@@ -455,7 +455,7 @@ This is how I've connected the two UART ports in my case. Also have a look the r
 
 ## Use the Jupyter notebook with STM32F7
 
-In the jupyter notebook [here](https://bitbucket.org/dimtass/stm32f746-x-cube-ai-mnist/src/master/jupyter_notebook/MNIST-TensorFlow.ipynb?viewer=nbviewer), there's a description on how to evaluate the model on the STM32F7. There are actually two ways to do that, the first one is to use the digit which is already integrated in the code and the other way is to upload your hand-draw digit to the STM32 for evaluation. In any case this will validate the model and also benchmark the NN. Therefore, all you need to do is to build and upload the firmware, make the proper connections, run the jupyter notebook and follow the steps in `5. Load model and interpreter`.
+In the jupyter notebook [here](https://github.com/dimtass/stm32f746-x-cube-ai-mnist/src/master/jupyter_notebook/MNIST-TensorFlow.ipynb?viewer=nbviewer), there's a description on how to evaluate the model on the STM32F7. There are actually two ways to do that, the first one is to use the digit which is already integrated in the code and the other way is to upload your hand-draw digit to the STM32 for evaluation. In any case this will validate the model and also benchmark the NN. Therefore, all you need to do is to build and upload the firmware, make the proper connections, run the jupyter notebook and follow the steps in `5. Load model and interpreter`.
 
 I've written two custom Python classes which are used in the notebook. Those classes are located in jupyter_notebook/ folder and each has its own folder.
 

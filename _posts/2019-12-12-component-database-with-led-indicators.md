@@ -81,7 +81,7 @@ Anyway let's assume that we'll use the NodeMCU for now, which looks like that
 
 Let's see a few details for the project now. Let's start with the project repo which is located here:
 
-[https://bitbucket.org/dimtass/lab-database-web-interface/src](https://bitbucket.org/dimtass/lab-database-web-interface/src)
+[https://github.com/dimtass/lab-database-web-interface](https://github.com/dimtass/lab-database-web-interface)
 
 In there you'll find a few different things. First is the `www/` folder that contains the web interface, then it's the `esp8266-firmware` that contains the firmware for the NodeMCU (or any ESP-12E) and finally there is a dockerfile that builds an image with a webserver that you can use for your tests. I'll explain every bit in more detail later, but for now let's focus on how everything is connected. This is the functional diagram.
 

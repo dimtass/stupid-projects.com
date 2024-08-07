@@ -248,7 +248,7 @@ Just read the [Programming Guide](https://mediacdn.eu/mage/media/wysiwyg/siglent
 
 This wouldn't be a proper stupid project if this was missing, so I couldn't resist the temptation. As bonus material I'll show you how to use the nanopi-neo (or any other SBC) to do some basic control on the output via a web interface using python, flask and websockets. I won't really get into the code details, but the code is free to use and edit and you can get it this repo:
 
-[https://bitbucket.org/dimtass/web-interface-for-sdg1025](https://bitbucket.org/dimtass/web-interface-for-sdg1025)
+[https://github.com/dimtass/web-interface-for-sdg1025](https://github.com/dimtass/web-interface-for-sdg1025)
 
 In order to run the code you need to follow all the commands in the previous sections to install a virtual env and python-usbtmc. Additionally, you need to install a couple of things more in order to support flask and wtforms on which my web interface is based on. In my case I've used the nanopi-neo and also my workstation and it worked fine on both. Now type those commands:
 
@@ -268,7 +268,7 @@ Now that you've installed the packages, you can run the code, but first you need
 Now, run these commands (includes also the repo clone).
 
 ```sh
-git clone git@bitbucket.org:dimtass/web-interface-for-sdg1025.git
+git clone git@github.com:dimtass/web-interface-for-sdg1025.git
 cd web-interface-for-sdg1025
 python3 sdg1025-web-interface.py
 ```

@@ -56,7 +56,7 @@ I've build the project on a breadboard. You can use a prototype breadboard if yo
 Therefore, the `PA0` and `PA1` are connected to `VRx`and `VRy`and they are set as ADC inputs. In the source code I'm using both `ADC1`and `ADC2`channels at the same time. The `ADC1`channel is also using DMA, which is not really necessary as the conversion rate doesn't need to be that fast, but I'm re-using code that I've already written for other projects. The setup of the ADCs is in the `hw_config.c`file in the source code. The ADCs are continuously convert the `VRx`and `VRy`inputs in the background as they are based on interrupts, but only every `JOYS_UPDATE_TMR_MS`milliseconds the function `joys_update()`updates the algorithm with the last valid values. The default update rate is 10ms, but you can trim it down to 1ms if you like. You can also have a look in the `joys_update()`function in `joystick.c`and trim the `JOYS_DEBOUNCE_CNTR`and `JOYS_RECOGNITION_TIME_MS`to your needs. The first one controls the debounce sensitivity and the second one the timeout of the gesture. That means the time in ms that the recognition timer will expire after the joystick is released in the center position and then send the recorded gesture.
 
 The source code can be found here:  
-[https://bitbucket.org/dimtass/stm32f103-usb-joystick](https://bitbucket.org/dimtass/stm32f103-usb-joystick)
+[https://github.com/dimtass/stm32f103-usb-joystick](https://github.com/dimtass/stm32f103-usb-joystick)
 
 To build the code you need cmake and to flash it you need ST-Link. Have a look in the `README.md` file in the repo for details. Also you need to point to your arm toolchain.
 

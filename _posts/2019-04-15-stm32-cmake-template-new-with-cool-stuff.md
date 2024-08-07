@@ -45,7 +45,7 @@ Finally, let's go to FreeRTOS. I guess, everyone knows what that is and I guess 
 
 Hence, in this cmake template you get all the above in the same project and you are able to select which libraries to enable by selecting the proper options in the cmake. But let's have a look. This is the repo here:
 
-[https://bitbucket.org/dimtass/stm32f103-cmake-template/src/master/](https://bitbucket.org/dimtass/stm32f103-cmake-template/src/master/)
+[https://github.com/dimtass/stm32f103-cmake-template](https://github.com/dimtass/stm32f103-cmake-template)
 
 After you clone the repo, there is a very interesting README.md file that you should read. It's supposed to written in a way that is easier to understand, compared to the cmake documentation. Also, another important file is the `build.sh` script that it handles all the details and runs cmake with the proper options.
 

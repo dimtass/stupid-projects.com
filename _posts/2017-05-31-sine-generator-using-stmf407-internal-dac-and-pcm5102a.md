@@ -59,7 +59,7 @@ Well, you're going to build a sine generator, so it's good to have an oscillosco
 
 Ok, now that you have everything you need let's see how you build a sine generator. First, I'll show how you can use the stm32's internal DACs, so grab the board and clone the following git repo.
 
-[https://bitbucket.org/dimtass/stm32f407_dds_dac](https://bitbucket.org/dimtass/stm32f407_dds_dac)
+[https://github.com/dimtass/stm32f407_dds_dac](https://github.com/dimtass/stm32f407_dds_dac)
 
 Depending on your OS (Windows or Linux) follow the instructions in the README. What you actually need is a bare metal arm compiler, cmake and then run the build script. After that you'll find the binary file in build-stm32 folder. Flash this bin on the stm32 board and reset the board. If you feel adventurous spend some time to read the crap source code. Everything is done using double buffering DMAs and FIFO buffers for faster speed and because of that the sampling rate in dds_defs.h is set to 384KHz. Be aware that if you don't use this specific board then your board might have a different xtal crystal, which means that you need to edit the HSE_VALUE in stm32f4xx.h
 
@@ -134,7 +134,7 @@ Anyway, what's the main difference between the internal DAC and this `PCM5102`? 
 
 Download the source code from the following repo and read the README.md file how to build the binaries:  
 
-[https://bitbucket.org/dimtass/stm32f407_dds_i2s_dma](https://bitbucket.org/dimtass/stm32f407_dds_i2s_dma)
+[https://github.com/dimtass/stm32f407_dds_dac](https://github.com/dimtass/stm32f407_dds_dac)
 
 Connect the board the following way:
 

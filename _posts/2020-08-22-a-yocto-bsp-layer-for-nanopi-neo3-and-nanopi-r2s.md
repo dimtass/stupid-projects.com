@@ -68,7 +68,6 @@ As I've mentioned, generally I prefer custom build images with Yocto for the var
 
 OK, enough with blah-blah, the BSP repo is here:
 
-[https://bitbucket.org/dimtass/meta-nanopi-rockchip64/src/master/](https://bitbucket.org/dimtass/meta-nanopi-rockchip64/src/master/)
 [https://github.com/dimtass/meta-nanopi-rockchip64](https://github.com/dimtass/meta-nanopi-rockchip64)
 [https://gitlab.com/dimtass/meta-nanopi-rockchip64](https://gitlab.com/dimtass/meta-nanopi-rockchip64)
 

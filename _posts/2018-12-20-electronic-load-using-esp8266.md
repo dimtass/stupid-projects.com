@@ -22,7 +22,7 @@ There are various ways to make an eload, but the easiest way to use a N-MOSFET a
 
 You can find the kicad project for the eload circuit here:
 
-[https://bitbucket.org/dimtass/esp8266-web-eload/src/master/kicad/eload/](https://bitbucket.org/dimtass/esp8266-web-eload/src/master/kicad/eload/)
+[https://github.com/dimtass/esp8266-web-eload/tree/master/kicad/eload](https://github.com/dimtass/esp8266-web-eload/tree/master/kicad/eload)
 
 In the above circuit there's a first stage opamp that is driven from a DAC. This opamp amplifies the signal with a gain of 2.2 and then the second stage opamp drives the MOSFET. The source of the MOSFET is connected on the PSU under test and the source to an array of parallel 10Ω/1W resistors, which makes an effective 1Ω/10W resistor. The gate and source of the MOSFET are connected in the negative feedback loop of the opamp. This means the opamp will do what opamps do and will _mirror_ the voltage on the (+) input to the (-) input. Which means that whatever voltage is applied on the (+) input then the opamp will drive the output in a way that both inputs have the same voltage. Because the gate and the source of the MOSFET are part of the feedback loop, then in this circuit it means the voltage on the source will be the same as the (+) input. Therefore, if you connect a load that is 1Ω then the current will be I=V/R and because R=1Ω, that means Ι=V. So, if 5V are applied in the (+) input then 5A will flow on the resistors.
 
@@ -71,7 +71,7 @@ The source code is really simple, because I've used the arduino libs for the esp
 Originally, I've started with the cnlohr's [esp82xx](https://github.com/cnlohr/esp82xx), which although it's an excellent start template to start with and it has quite a few nice things in there, like a custom small file system and websockets; at the same time it's a bit tight to it's default web interface and it's quite an effort to strip out all the unused stuff and add your own things. Therefore, after already spending some time with this template and bulding on top of it, I've decided to go with the arduino libs for the esp8266 because in that case I just had to write literally a few lines of code.
 
 You can find the source code here:  
-[https://bitbucket.org/dimtass/esp8266-web-eload/src/master/](https://bitbucket.org/dimtass/esp8266-web-eload/src/master/)
+[https://github.com/dimtass/esp8266-web-eload](https://github.com/dimtass/esp8266-web-eload)
 
 Also the _kicad_ files are in there, so you can edit/order your own board. Read the _README.md_ file for more info how to build the binary and upload the web server files.
 

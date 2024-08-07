@@ -33,7 +33,6 @@ If you've read so far and you've also read the previous post, then pause for a m
 
 Since I've explained most part of the useful code in the previous post [here]({% post_url 2020-04-16-tensorflow-2-1-0-for-microcontrollers-benchmarks-on-stm32f746 %}), I won't go again into the details. You can find the source code for the Teensy 4.0 here:
 
-- [https://bitbucket.org/dimtass/imxrt1062-tflite-micro-mnist/src/master/](https://bitbucket.org/dimtass/imxrt1062-tflite-micro-mnist/src/master/)  
 - [https://gitlab.com/dimtass/imxrt1062-tflite-micro-mnist](https://gitlab.com/dimtass/imxrt1062-tflite-micro-mnist)  
 - [https://github.com/dimtass/imxrt1062-tflite-micro-mnist](https://github.com/dimtass/imxrt1062-tflite-micro-mnist)
 

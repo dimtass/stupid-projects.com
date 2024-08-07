@@ -86,9 +86,9 @@ The stm32 is powered either from the USB port when it's connected on the PC or f
 
 When you unsolder the blue resistor POT from the LM2596 PSU module, then you'll have three empty holes on the PCB. The LM2596-POT1 and LM2596-POT2 terminals are connected to the PCB holes next to the OUT+ output. There are two main power inputs, the one is the VIN that is connected to the AMS1117-3.3 and provides power to the circuit and the other is the PSU V+ that comes from the external power supply you're going to use for the LM2596. Therefore, the `LM2596-POT1/2` and `PSU V+ in/out` are connected to the LM2596 PSU. The USB_UART (P1) is not necessary to use and it's just the debug UART port.
 
-You can download the source files from my bitbucket project
+You can download the source files from my github project
 
-[https://bitbucket.org/dimtass/stm32f103_wifi_usb_psu](https://bitbucket.org/dimtass/stm32f103_wifi_usb_psu)
+[https://github.com/dimtass/stm32f103-wifi-usb-psu](https://github.com/dimtass/stm32f103-wifi-usb-psu)
 
 Read the README.md file as it has all the details you need, but still I'll explain some things here. You don't have to build the code to use it, but I suggest that you do as you need to change a few parameters in the source files. The pre-build binaries of the latest build are located in the firmware folder, therefore you can use the ST-Link utility on windows to flash the hex file or the st-flash utility on Linux to flash the bin file. To upload the firmware you just need to connect the USB cable on the stm32f103 board and run the flashing commands which are in the README.md file.
 

@@ -19,7 +19,6 @@ After seeing the results, my next idea was to replace the TTY interface with a N
 
 I've added the recipes with all the code in the BSP base layer here:
 
-  - [https://bitbucket.org/dimtass/meta-stm32mp1-bsp-base/src/master/](https://bitbucket.org/dimtass/meta-stm32mp1-bsp-base/src/master/)
   - [https://github.com/dimtass/meta-stm32mp1-bsp-base](https://github.com/dimtass/meta-stm32mp1-bsp-base)
   - [https://gitlab.com/dimtass/meta-stm32mp1-bsp-base](https://gitlab.com/dimtass/meta-stm32mp1-bsp-base)
 
@@ -33,7 +32,6 @@ To build the image using this BSP base layer, then read the README.md file in th
 
 The repo of the actual code is here:
 
-[https://bitbucket.org/dimtass/stm32mp1-rpmsg-netlink-example/src/master/](https://bitbucket.org/dimtass/stm32mp1-rpmsg-netlink-example/src/master/)
 [https://github.com/dimtass/stm32mp1-rpmsg-netlink-example](https://github.com/dimtass/stm32mp1-rpmsg-netlink-example)
 [https://gitlab.com/dimtass/stm32mp1-rpmsg-netlink-example](https://gitlab.com/dimtass/stm32mp1-rpmsg-netlink-example)
 

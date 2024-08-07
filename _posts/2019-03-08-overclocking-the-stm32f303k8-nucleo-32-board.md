@@ -31,7 +31,7 @@ And yes… In this project you’ll get an stm32f303k8 overclocked up to 128MHz 
 
 You can download the source code from here:
 
-[https://bitbucket.org/dimtass/stm32f303k8_template/src/master/](https://bitbucket.org/dimtass/stm32f303k8_template/src/master/)
+[https://github.com/dimtass/stm32f303k8-template](https://github.com/dimtass/stm32f303k8-template)
 
 This template is quite simple, just a blinking LED and a USART port @115200 baud-rate. You can use this as a cmake template to build your own stuff on top of it. So, let’s have a look in the `main()` function to explain what is going on there.
 

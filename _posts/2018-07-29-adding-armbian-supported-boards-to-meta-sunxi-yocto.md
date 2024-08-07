@@ -17,7 +17,7 @@ Probably you're already know about the allwinner meta layer, [meta-sunxi](https:
 
 And the result was this repo that does exactly that. Though it's still a work in progress.
 
-[https://bitbucket.org/dimtass/meta-allwinner-hx/](https://bitbucket.org/dimtass/meta-allwinner-hx/)
+[https://github.com/dimtass/meta-allwinner-hx](https://github.com/dimtass/meta-allwinner-hx)
 
 This repo is actually a mix of the `meta-sunxi` and `armbian` and only supports H2, H3 and H5 boards from nanopi and orange-pi. The `README.md` is quite detailed, so you don't really need to read the rest post to bring it up and build your images.
 

@@ -115,7 +115,6 @@ OK, so now let's have a look in the source code that I've used for testing the A
 
   - [https://gitlab.com/dimtass/esp8266-sonoff-acs712-test-firmware](https://gitlab.com/dimtass/esp8266-sonoff-acs712-test-firmware)
   - [https://github.com/dimtass/esp8266-sonoff-acs712-test-firmware](https://github.com/dimtass/esp8266-sonoff-acs712-test-firmware)
-  - [https://bitbucket.org/dimtass/esp8266-sonoff-acs712-test-firmware](https://bitbucket.org/dimtass/esp8266-sonoff-acs712-test-firmware)
 
 Reading the ADC value is the easy part, but there are a couple of things that you need to do in order to convert this value to something meaningful. Since I'm measuring AC current, then a snapshot of the ADC value is meaningless as it oscillates around 0V and also takes negative values. In this case we need the RMS value, which is the root-mean-square value. Before continuing further, I've compiled this list of equations.
 

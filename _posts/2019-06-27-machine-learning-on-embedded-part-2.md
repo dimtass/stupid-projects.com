@@ -27,9 +27,9 @@ The MCUs that we're going to use are the same one with the [previous post]({% po
 
 ## Another simple NN
 
-Everything that is related to this project for all the article parts are in this bitbucket repo:
+Everything that is related to this project for all the article parts are in this github repo:
 
-[https://bitbucket.org/dimtass/machine-learning-for-embedded/src/master/](https://bitbucket.org/dimtass/machine-learning-for-embedded/src/master/)
+[https://github.com/dimtass/machine-learning-for-embedded](https://github.com/dimtass/machine-learning-for-embedded)
 
 In the previous post we had a very simple NN with 3-inputs and 1-output. In this post we'll have a NN with 3-inputs, a hidden layer with 32 nodes and 1-output. You can see that in the following picture:
 
@@ -44,7 +44,7 @@ As the inputs are the same, the same table with all possible 8 input sets stands
 
 ## Training the model
 
-To train this model is a bit more complicated than before. You can open the `Simple python NN (1 hidden).ipynb` notepad from the cloned repo in your Jupyter browser or you can just view it [here](https://bitbucket.org/dimtass/machine-learning-for-embedded/src/master/jupyter_notebook/Simple%20python%20NN%20(1%20hidden).ipynb?viewer=nbviewer). The python code seems almost the same but in this case I've made some changes to support the hidden layer and the additional weights between each layer.
+To train this model is a bit more complicated than before. You can open the `Simple python NN (1 hidden).ipynb` notepad from the cloned repo in your Jupyter browser or you can just view it [here](https://github.com/dimtass/machine-learning-for-embedded/blob/master/jupyter_notebook/Simple%20python%20NN%20(1%20hidden).ipynb). The python code seems almost the same but in this case I've made some changes to support the hidden layer and the additional weights between each layer.
 
 In step 2. in the notebook you can see that now the weights are a `[3][32]` array. That means 32 weights for each of the 3 inputs. That's 96 weights only for the first two layers, plus another 32 weights for the next, which is total 128 weights! So you can imagine that this will need a lot more processing time to calculate and also that this number can grow really fast the more hidden layers or nodes/layer you add.
 

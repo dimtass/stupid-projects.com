@@ -23,7 +23,6 @@ For those tests I'm using the default Keras MNIST dataset and a quite large mode
 
 I've updated the repo I've used in post 3 and added two new tags. The previous version has the v1.14.0 tag and the new version has the v2.1.0 tag. The repo is located here:
 
-[https://bitbucket.org/dimtass/stm32f746-tflite-micro-mnist](https://bitbucket.org/dimtass/stm32f746-tflite-micro-mnist)
 [https://github.com/dimtass/stm32f746-tflite-micro-mnist](https://github.com/dimtass/stm32f746-tflite-micro-mnist)
 [https://gitlab.com/dimtass/stm32f746-tflite-micro-mnist](https://gitlab.com/dimtass/stm32f746-tflite-micro-mnist)
 
@@ -219,7 +218,7 @@ TOTAL TIME=	|	692	|	725.43	|	-33.43
 
 As you can image I'm really struggling with those results, as it seems that the performance in 2.1.0 version is slightly worse, even in case that now more layers support cmsis-nn.
 
-In version 1.14.0, only the depthwise_conv_2d was implemented with cmsis-nn as you can see [here](https://bitbucket.org/dimtass/stm32f746-tflite-micro-mnist/src/v1.14.0/source/libs/tensorflow/lite/experimental/micro/kernels/cmsis-nn/). But in the new 2.1.0 stable version more kernels are implemented as you can see [here](https://bitbucket.org/dimtass/stm32f746-tflite-micro-mnist/src/master/source/libs/tensorflow/tensorflow/lite/micro/kernels/cmsis-nn/). Therefore, now conv_2d and fully connected are supported. Nevertheless, the performance seems to be worse...
+In version 1.14.0, only the depthwise_conv_2d was implemented with cmsis-nn as you can see [here](https://github.com/dimtass/stm32f746-tflite-micro-mnist/tree/v1.14.0/source/libs/tensorflow/lite/experimental/micro/kernels/cmsis-nn). But in the new 2.1.0 stable version more kernels are implemented as you can see [here](https://github.com/dimtass/stm32f746-tflite-micro-mnist/tree/master/source/libs/tensorflow/tensorflow/lite/micro/kernels/cmsis-nn). Therefore, now conv_2d and fully connected are supported. Nevertheless, the performance seems to be worse...
 
 Initially I thought that I was doing something terribly wrong, therefore, I've deliberately was introducing compiler errors in those files and specifically in the parts that the cmsis-nn functions are used and the compiler actually was complaining, therefore I was sure that at least the compilation was right.
 

@@ -97,13 +97,13 @@ You can power the stm32 from the USB connector.
 
 You can download the project source code from here:
 
-[https://bitbucket.org/dimtass/stm32f103-ili9341-dma/src/master/](https://bitbucket.org/dimtass/stm32f103-ili9341-dma/src/master/)
+[https://github.com/dimtass/stm32f103-ili9341-dma/](https://github.com/dimtass/stm32f103-ili9341-dma)
 
 All you need to do is install (or have already installed) a gcc toolchain for ARM. I'm using the `gcc-arm-none-eabi-7-2017-q4-major`, that you can find [here](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads). Just scroll down a bit, because there are newer toolchains; but from the tests I've done [here](http://www.stupid-projects.com/gcc-compiler-size-benchmarks/), it seems this produces the most compact code. Then depending your OS, change the path of the toolchain in the `TOOLCHAIN_DIR` variable in the project's file `cmake/TOOLCHAIN_arm_none_eabi_cortex_m3.cmake`. Last, run `./build.sh`on Linux or `build.cmd`on Windows to build and then flash the bin/hex on the stm32.
 
 ## Results
 
-The SPI speed of the `stm32f103` by using DMA can achieve an SPI clock up to 36MHz when the mcu is running on the default highest frequency which is 76MHz. That's really fast already compared to other Cortex-M3 mcus with the same frequency (even faster mcus). To use the default 72MHz clock you need to comment out line 47 in `main.c` [here](https://bitbucket.org/dimtass/stm32f103-ili9341-dma/src/94a099d64011975940d07505dd5d1d7bfb0d6aed/source/main.c#lines-47), otherwise the clock will set to 128MHz.
+The SPI speed of the `stm32f103` by using DMA can achieve an SPI clock up to 36MHz when the mcu is running on the default highest frequency which is 76MHz. That's really fast already compared to other Cortex-M3 mcus with the same frequency (even faster mcus). To use the default 72MHz clock you need to comment out line 47 in `main.c` [here](https://github.com/dimtass/stm32f103-ili9341-dma/blob/14e81f0c98cddb89de23cff56a7e55a784791172/source/main.c#L131), otherwise the clock will set to 128MHz.
 
 This is a capture of CLK/MOSI when sending the byte `0xAA`.
 
@@ -111,7 +111,7 @@ This is a capture of CLK/MOSI when sending the byte `0xAA`.
 
 With the above clock settings, the stm32f103 achieves 29 FPS when drawing all the pixels of the screen.
 
-By overclocking the mcu to 128MHz the SPI/DMA speed is much higher. To enable the oveclocking you need to un-comment line 47 [here](https://bitbucket.org/dimtass/stm32f103-ili9341-dma/src/94a099d64011975940d07505dd5d1d7bfb0d6aed/source/main.c#lines-47) (`SystemCoreClock = overclock_stm32f103();`), which by default is already enabled.
+By overclocking the mcu to 128MHz the SPI/DMA speed is much higher. To enable the oveclocking you need to un-comment line 47 [here](https://github.com/dimtass/stm32f103-ili9341-dma/blob/14e81f0c98cddb89de23cff56a7e55a784791172/source/main.c#L131) (`SystemCoreClock = overclock_stm32f103();`), which by default is already enabled.
 
 This is a capture of CLK/MOSI when sending the byte `0xAA`.
 

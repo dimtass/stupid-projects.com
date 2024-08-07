@@ -73,12 +73,12 @@ This is the setup on my desk.
 
 I've written a small cmake project for the stm32f303cc that implements all the above things and you can find the code here:
 
-[https://bitbucket.org/dimtass/stm32f303-adc-dac-dsp/src/master/](https://bitbucket.org/dimtass/stm32f303-adc-dac-dsp/src/master/)
+[https://github.com/dimtass/stm32f303-adc-dsp-dac](https://github.com/dimtass/stm32f303-adc-dsp-dac)
 
 To clone the repo locally run:
 
 ```sh
-git clone --recursive https://dimtass@bitbucket.org/dimtass/stm32f303-adc-dac-dsp.git
+git clone --recursive https://github.com/dimtass/stm32f303-adc-dsp-dac.git
 ```
 
 The supported filters in the code are:
@@ -320,7 +320,7 @@ As you can see from the screenshot, the time execution of the filter function is
 
 As you can see now the filtering function takes 1.7 microseconds, which is almost the half time!
 
-So, why is that happening? Well, I didn't check the asm, but I guess that the memory copy operations in order to create the arrays to pass to the function takes a lot of time and at the same time the compiler optimizations are good enough to make the code run fast even without the CMSIS-DSP library. You can have a look in the C flags that I'm using in [cmake](https://bitbucket.org/dimtass/stm32f303-adc-dsp-dac/src/5e8574bb4010b207358bc0978495254736e36d29/source/CMakeLists.txt#lines-89), but they are generally trimmed for maximum performance.
+So, why is that happening? Well, I didn't check the asm, but I guess that the memory copy operations in order to create the arrays to pass to the function takes a lot of time and at the same time the compiler optimizations are good enough to make the code run fast even without the CMSIS-DSP library. You can have a look in the C flags that I'm using in [cmake](https://github.com/dimtass/stm32f303-adc-dsp-dac/blob/141426e5ade975a54e734ab7ec75e9851b8e2675/source/CMakeLists.txt#L89), but they are generally trimmed for maximum performance.
 
 Therefore, after those initial results I decided not to continue with using the the CMSIS-DSP lib for the filter function.
 
