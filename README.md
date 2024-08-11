@@ -3,6 +3,9 @@ www.stupid-projects.com
 
 This is the content of the blog [stupid-projects](https://www.stupid-projects.com)
 
+## Google analytics
+The google analytics can be found [here](https://analytics.google.com/analytics/web/?utm_source=marketingplatform.google.com&utm_medium=et&utm_campaign=marketingplatform.google.com%2Fabout%2Fanalytics%2F#/p382147262/reports/dashboard?params=_u..nav%3Dmaui&r=lifecycle-acquisition-overview&ruid=lifecycle-acquisition-overview,life-cycle,acquisition&collectionId=life-cycle)
+
 ## Local debug
 Run this command in the root directory:
 ```sh
