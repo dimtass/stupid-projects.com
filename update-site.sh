@@ -28,4 +28,4 @@ ssh -i ${SSH_KEY_PATH} ${REMOTE_USER}@${REMOTE_HOST} "rm -rf ${REMOTE_PATH}/*"
 rsync -avz --delete ${LOCAL_PATH} ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_PATH}
 
 # Execute "docker-compose restart nginx" in the "/root/stupid-projects.com" directory
-ssh -i ${SSH_KEY_PATH} -t ${REMOTE_USER}@${REMOTE_HOST} "cd /root/stupid-projects.com && docker-compose restart nginx"
+ssh -i ${SSH_KEY_PATH} -t ${REMOTE_USER}@${REMOTE_HOST} "cd /root/stupid-projects.com && docker compose restart nginx"
