@@ -3,7 +3,7 @@
 # Define variables
 REMOTE_HOST="stupid-projects.com"
 REMOTE_USER="root"
-REMOTE_PATH="/root/html"
+REMOTE_PATH="/root/stupid-projects.com/html"
 LOCAL_PATH="./_site/."
 BACKUP_PATH="./backups"
 CURRENT_DATE=$(date +"%Y%m%d")
