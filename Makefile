@@ -21,6 +21,3 @@ build:
 		--publish [::1]:4000:4000 \
 		jvconseil/jekyll-docker \
 		jekyll build
-
-upload:
-	./update-site.sh
